@@ -1,0 +1,8 @@
+{
+  "name": "The Manderley Bar",
+  "short_name": "Manderley",
+  "display": "standalone",
+  "background_color": "#060504",
+  "theme_color": "#060504",
+  "start_url": "/"
+}
