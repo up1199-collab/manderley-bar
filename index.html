@@ -12,7 +12,7 @@
     <meta name="apple-mobile-web-app-title" content="Manderley Bar">
     <meta name="application-name" content="Manderley Bar">
     <meta name="theme-color" content="#060504">
-    <link rel="manifest" href="data:application/json;charset=utf-8,%7B%22name%22%3A%22The%20Manderley%20Bar%22%2C%22short_name%22%3A%22Manderley%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%23060504%22%2C%22theme_color%22%3A%22%23060504%22%2C%22start_url%22%3A%22.%22%7D">
+    <link rel="manifest" href="/manifest.json">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -5471,6 +5471,11 @@ const menuData = {
             if (newEnterBtn) {
                 newEnterBtn.addEventListener('click', (e) => { e.stopPropagation(); dismissSplash(); });
             }
+        }
+    </script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js');
         }
     </script>
 </body>
