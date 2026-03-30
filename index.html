@@ -686,7 +686,7 @@
             overflow-x: auto;
             padding-bottom: 0.5rem;
             -webkit-overflow-scrolling: touch;
-            scroll-behavior: smooth;
+            scroll-behavior: auto;
             user-select: none;
             -webkit-user-select: none;
             -moz-user-select: none;
@@ -1109,7 +1109,43 @@
             border-color: rgba(201,168,76,0.5);
         }
 
-        /* ─── Icon group labels & divider ─── */
+        /* ─── 2차 서브카테고리 탭바 ─── */
+        .subcat-tabs-wrap {
+            display: flex;
+            gap: 0.4rem;
+            overflow-x: auto;
+            padding: 0.6rem 0 0.4rem;
+            margin-bottom: 0.8rem;
+            -webkit-overflow-scrolling: touch;
+        }
+        .subcat-tabs-wrap::-webkit-scrollbar { display: none; }
+
+        .subcat-tab {
+            flex-shrink: 0;
+            padding: 0.4rem 0.85rem;
+            border-radius: 20px;
+            border: 0.5px solid var(--gold-border);
+            background: rgba(30,26,18,0.7);
+            color: var(--text-muted);
+            font-family: 'Raleway', sans-serif;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.18s;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        .subcat-tab:hover { color: var(--text); border-color: rgba(201,168,76,0.45); }
+        .subcat-tab.active {
+            background: rgba(201,168,76,0.14);
+            border: 1px solid rgba(201,168,76,0.6);
+            color: var(--gold);
+            font-weight: 600;
+        }
+        .subcat-tab:active { transform: scale(0.96); }
         .icon-group-label {
             display: flex;
             align-items: baseline;
@@ -1619,7 +1655,31 @@ const menuData = {
                 garnish: "None",
                 garnishKo: "없음"
               }
-            }]
+            },
+            {
+              name: "Bobby Burns",
+              nameKo: "바비 번즈",
+              description: "Scotch, Sweet Vermouth, Benedictine",
+              descriptionKo: "스카치, 스위트 베르무트, 베네딕틴",
+              flavors: ["spirit-forward", "herbal", "complex"],
+              image: "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
+              history: "Created in the early 1900s, named after Scottish poet Robert Burns. A Scotch variation of the Rob Roy with the addition of Benedictine. Shows how a small amount of liqueur can transform a classic. A sophisticated after-dinner drink.",
+              historyKo: "1900년대 초에 창안되었으며, 스코틀랜드 시인 로버트 번즈의 이름을 땄습니다. 베네딕틴을 추가한 롭 로이의 스카치 변형입니다. 소량의 리큐르가 클래식을 변화시킬 수 있는 방법을 보여줍니다. 세련된 식후 음료입니다.",
+              recipe: {
+                glass: "Coupe Glass",
+                glassKo: "쿠페 글라스",
+                ingredients: [
+                  { en: "60ml Scotch Whisky", ko: "스카치 위스키 60ml" },
+                  { en: "30ml Sweet Vermouth", ko: "스위트 베르무트 30ml" },
+                  { en: "1 tsp Benedictine", ko: "베네딕틴 1 티스푼" }
+                ],
+                method: "Stir all ingredients with ice. Strain into chilled coupe.",
+                methodKo: "모든 재료를 얼음과 저어준다. 차가운 쿠페에 따른다.",
+                garnish: "Lemon Twist",
+                garnishKo: "레몬 트위스트"
+              }
+            }
+          ]
         },
         "Bourbon": {
           nameKo: "버번",
@@ -1839,7 +1899,33 @@ const menuData = {
                 garnish: "Lemon Wheel, Cherry",
                 garnishKo: "레몬 휠, 체리"
               }
-            }]
+            },
+            {
+              name: "Suffering Bastard",
+              nameKo: "서퍼링 바스터드",
+              description: "Bourbon, Gin, Lime, Ginger Beer, Bitters",
+              descriptionKo: "버번, 진, 라임, 진저 비어, 비터스",
+              flavors: ["spicy", "refreshing", "complex"],
+              image: "🤕",
+              history: "Created in the 1940s by Joe Scialom at Cairo's Shepheard's Hotel during WWII. Designed as a hangover cure for British officers. The unusual combination of bourbon and gin works surprisingly well. A tiki-adjacent classic.",
+              historyKo: "제2차 세계대전 중 카이로의 셰퍼드 호텔에서 조 시알롬이 1940년대에 창안했습니다. 영국 장교들의 숙취 해소제로 디자인되었습니다. 버번과 진의 특이한 조합이 놀랍도록 잘 어울립니다. 티키에 인접한 클래식입니다.",
+              recipe: {
+                glass: "Collins Glass",
+                glassKo: "콜린스 글라스",
+                ingredients: [
+                  { en: "30ml Bourbon", ko: "버번 30ml" },
+                  { en: "30ml Gin", ko: "진 30ml" },
+                  { en: "15ml Fresh Lime Juice", ko: "신선한 라임 주스 15ml" },
+                  { en: "90ml Ginger Beer", ko: "진저 비어 90ml" },
+                  { en: "2 dashes Angostura Bitters", ko: "앙고스투라 비터스 2 대시" }
+                ],
+                method: "Build over ice. Add bourbon, gin, lime, and bitters. Top with ginger beer. Stir gently.",
+                methodKo: "얼음 위에 만든다. 버번, 진, 라임, 비터스를 넣는다. 진저 비어로 채운다. 부드럽게 저어준다.",
+                garnish: "Mint Sprig, Cucumber",
+                garnishKo: "민트 스프리그, 오이"
+              }
+            }
+          ]
         },
         "Rye": {
           nameKo: "라이",
@@ -2046,7 +2132,32 @@ const menuData = {
                 garnish: "Lime Wedge, Mint",
                 garnishKo: "라임 웨지, 민트"
               }
-            }]
+            },
+            {
+              name: "Cameron's Kick",
+              nameKo: "캐머런스 킥",
+              description: "Irish Whiskey, Scotch, Lemon, Orgeat",
+              descriptionKo: "아이리시 위스키, 스카치, 레몬, 오르제",
+              flavors: ["nutty", "citrus", "complex"],
+              image: "⚽",
+              history: "Published in Harry MacElhone's 'Harry's ABC of Mixing Cocktails' in the 1920s. Named after a Scottish football club. A rare cocktail that combines both Irish whiskey and Scotch. Rediscovered during the modern cocktail renaissance.",
+              historyKo: "1920년대 해리 맥엘혼의 '해리의 칵테일 믹싱 ABC'에 출판되었습니다. 스코틀랜드 축구 클럽의 이름을 땄습니다. 아이리시 위스키와 스카치를 모두 결합한 희귀한 칵테일입니다. 현대 칵테일 르네상스 동안 재발견되었습니다.",
+              recipe: {
+                glass: "Coupe Glass",
+                glassKo: "쿠페 글라스",
+                ingredients: [
+                  { en: "30ml Irish Whiskey", ko: "아이리시 위스키 30ml" },
+                  { en: "30ml Scotch Whisky", ko: "스카치 위스키 30ml" },
+                  { en: "22.5ml Fresh Lemon Juice", ko: "신선한 레몬 주스 22.5ml" },
+                  { en: "15ml Orgeat Syrup", ko: "오르제 시럽 15ml" }
+                ],
+                method: "Shake all ingredients with ice. Strain into chilled coupe.",
+                methodKo: "모든 재료를 얼음과 흔든다. 차가운 쿠페에 따른다.",
+                garnish: "Lemon Twist",
+                garnishKo: "레몬 트위스트"
+              }
+            }
+          ]
         }
       }
     },
@@ -2513,7 +2624,59 @@ const menuData = {
                 garnish: "Lemon Twist",
                 garnishKo: "레몬 트위스트"
               }
-            }]
+            },
+            {
+              name: "White Lady",
+              nameKo: "화이트 레이디",
+              description: "Gin, Cointreau, Lemon, Egg White",
+              descriptionKo: "진, 코앵트로, 레몬, 계란 흰자",
+              flavors: ["citrus", "smooth", "refreshing"],
+              image: "👻",
+              history: "Created in the 1920s by Harry MacElhone at Harry's New York Bar in Paris. A gin sour elevated with orange liqueur and egg white. One of the most famous classic cocktails. The silky texture from egg white makes it unforgettable.",
+              historyKo: "1920년대 해리 맥엘혼이 파리의 해리스 뉴욕 바에서 창안했습니다. 오렌지 리큐르와 계란 흰자로 격상된 진 사워입니다. 가장 유명한 클래식 칵테일 중 하나입니다. 계란 흰자의 실키한 텍스처가 잊을 수 없게 만듭니다.",
+              recipe: {
+                glass: "Coupe Glass",
+                glassKo: "쿠페 글라스",
+                ingredients: [
+                  { en: "40ml London Dry Gin", ko: "런던 드라이 진 40ml" },
+                  { en: "30ml Cointreau", ko: "코앵트로 30ml" },
+                  { en: "20ml Fresh Lemon Juice", ko: "신선한 레몬 주스 20ml" },
+                  { en: "1 Egg White", ko: "계란 흰자 1개" }
+                ],
+                method: "Dry shake without ice first. Add ice and shake hard. Double strain into chilled coupe.",
+                methodKo: "먼저 얼음 없이 드라이 쉐이크한다. 얼음을 넣고 세게 흔든다. 차가운 쿠페에 더블 스트레인한다.",
+                garnish: "None",
+                garnishKo: "없음"
+              }
+            }
+          ,
+            {
+              name: "Satan's Whiskers",
+              nameKo: "사탄의 수염",
+              description: "Gin, Sweet & Dry Vermouth, Grand Marnier, Orange, Bitters",
+              descriptionKo: "진, 스위트 & 드라이 베르무트, 그랑 마르니에, 오렌지, 비터스",
+              flavors: ["complex", "citrus", "herbal"],
+              image: "😈",
+              history: "Created in the 1920s-30s during the golden age of cocktails. Two versions exist: 'Straight' with Grand Marnier and 'Curled' with orange curaçao. A sophisticated pre-Prohibition classic. The name reflects its devilishly complex character.",
+              historyKo: "칵테일의 황금기인 1920-30년대에 창안되었습니다. 그랑 마르니에를 넣은 '스트레이트'와 오렌지 큐라소를 넣은 '컬드' 두 버전이 있습니다. 세련된 금주법 이전 클래식입니다. 이름은 악마적으로 복잡한 특성을 반영합니다.",
+              recipe: {
+                glass: "Coupe Glass",
+                glassKo: "쿠페 글라스",
+                ingredients: [
+                  { en: "30ml London Dry Gin", ko: "런던 드라이 진 30ml" },
+                  { en: "15ml Sweet Vermouth", ko: "스위트 베르무트 15ml" },
+                  { en: "15ml Dry Vermouth", ko: "드라이 베르무트 15ml" },
+                  { en: "15ml Grand Marnier", ko: "그랑 마르니에 15ml" },
+                  { en: "30ml Fresh Orange Juice", ko: "신선한 오렌지 주스 30ml" },
+                  { en: "1 dash Orange Bitters", ko: "오렌지 비터스 1 대시" }
+                ],
+                method: "Shake all ingredients with ice. Strain into chilled coupe.",
+                methodKo: "모든 재료를 얼음과 흔든다. 차가운 쿠페에 따른다.",
+                garnish: "Orange Twist",
+                garnishKo: "오렌지 트위스트"
+              }
+            }
+          ]
         },
         "Old Tom": {
           nameKo: "올드 톰",
@@ -2802,7 +2965,58 @@ const menuData = {
                 garnish: "Lemon Twist",
                 garnishKo: "레몬 트위스트"
               }
-            }]
+            },
+            {
+              name: "Twentieth Century",
+              nameKo: "트웬티어스 센츄리",
+              description: "Gin, Lillet Blanc, Crème de Cacao, Lemon",
+              descriptionKo: "진, 릴레 블랑, 크렘 드 카카오, 레몬",
+              flavors: ["citrus", "smooth", "complex"],
+              image: "🚂",
+              history: "Created in the 1930s by C.A. Tuck, named after the famous Twentieth Century Limited luxury train. An elegant Aviation variation with chocolate notes. Featured in the 1934 book 'Café Royal Cocktail Book.' A forgotten gem rediscovered.",
+              historyKo: "1930년대 C.A. 턱이 창안했으며, 유명한 트웬티어스 센츄리 리미티드 럭셔리 기차의 이름을 땄습니다. 초콜릿 노트가 있는 우아한 에이비에이션 변형입니다. 1934년 '카페 로열 칵테일 북'에 등장했습니다. 재발견된 잊힌 보석입니다.",
+              recipe: {
+                glass: "Coupe Glass",
+                glassKo: "쿠페 글라스",
+                ingredients: [
+                  { en: "45ml Gin", ko: "진 45ml" },
+                  { en: "22.5ml Lillet Blanc", ko: "릴레 블랑 22.5ml" },
+                  { en: "15ml White Crème de Cacao", ko: "화이트 크렘 드 카카오 15ml" },
+                  { en: "22.5ml Fresh Lemon Juice", ko: "신선한 레몬 주스 22.5ml" }
+                ],
+                method: "Shake all ingredients with ice. Strain into chilled coupe.",
+                methodKo: "모든 재료를 얼음과 흔든다. 차가운 쿠페에 따른다.",
+                garnish: "Lemon Twist",
+                garnishKo: "레몬 트위스트"
+              }
+            }
+          ,
+            {
+              name: "Enzoni",
+              nameKo: "엔조니",
+              description: "Gin, Campari, Lemon, Grapes, Simple Syrup",
+              descriptionKo: "진, 캄파리, 레몬, 포도, 심플 시럽",
+              flavors: ["bitter", "fruity", "refreshing"],
+              image: "🍇",
+              history: "Created in the early 2000s by Vincenzo Errico at Café Mediceo in Florence, Italy. A Negroni Sbagliato variation that uses muddled grapes instead of prosecco. Became an international modern classic. Shows Italian innovation in cocktails.",
+              historyKo: "2000년대 초 이탈리아 피렌체의 카페 메디체오에서 빈첸조 에리코가 창안했습니다. 프로세코 대신 으깬 포도를 사용한 네그로니 스발리아토 변형입니다. 국제적인 모던 클래식이 되었습니다. 칵테일에서 이탈리아의 혁신을 보여줍니다.",
+              recipe: {
+                glass: "Rocks Glass",
+                glassKo: "락 글라스",
+                ingredients: [
+                  { en: "30ml Gin", ko: "진 30ml" },
+                  { en: "30ml Campari", ko: "캄파리 30ml" },
+                  { en: "22.5ml Fresh Lemon Juice", ko: "신선한 레몬 주스 22.5ml" },
+                  { en: "15ml Simple Syrup", ko: "심플 시럽 15ml" },
+                  { en: "5-6 Red Grapes", ko: "적포도 5-6개" }
+                ],
+                method: "Muddle grapes in shaker. Add other ingredients with ice. Shake and strain over fresh ice.",
+                methodKo: "쉐이커에서 포도를 머들한다. 다른 재료를 얼음과 넣는다. 흔들고 새 얼음에 따른다.",
+                garnish: "Grape",
+                garnishKo: "포도"
+              }
+            }
+          ]
         }
       }
     },
@@ -3346,7 +3560,33 @@ const menuData = {
                 garnish: "Lemon Twist",
                 garnishKo: "레몬 트위스트"
               }
-            }]
+            },
+            {
+              name: "Siesta",
+              nameKo: "시에스타",
+              description: "Tequila, Campari, Grapefruit, Lime, Simple Syrup",
+              descriptionKo: "테킬라, 캄파리, 자몽, 라임, 심플 시럽",
+              flavors: ["bitter", "citrus", "refreshing"],
+              image: "🌅",
+              history: "Created in the mid-2000s by Katie Stipe at Flatiron Lounge in New York. A tequila variation of the Hemingway Daiquiri with Campari. Modern classic that shows tequila's versatility. Perfect balance of bitter and sour.",
+              historyKo: "2000년대 중반 케이티 스타이프가 뉴욕 플랫아이언 라운지에서 창안했습니다. 캄파리를 넣은 헤밍웨이 다이키리의 테킬라 변형입니다. 테킬라의 다재다능함을 보여주는 모던 클래식입니다. 쓴맛과 신맛의 완벽한 균형입니다.",
+              recipe: {
+                glass: "Coupe Glass",
+                glassKo: "쿠페 글라스",
+                ingredients: [
+                  { en: "45ml Tequila Reposado", ko: "테킬라 레포사도 45ml" },
+                  { en: "22.5ml Campari", ko: "캄파리 22.5ml" },
+                  { en: "22.5ml Fresh Grapefruit Juice", ko: "신선한 자몽 주스 22.5ml" },
+                  { en: "15ml Fresh Lime Juice", ko: "신선한 라임 주스 15ml" },
+                  { en: "15ml Simple Syrup", ko: "심플 시럽 15ml" }
+                ],
+                method: "Shake all ingredients with ice. Strain into chilled coupe.",
+                methodKo: "모든 재료를 얼음과 흔든다. 차가운 쿠페에 따른다.",
+                garnish: "Grapefruit Twist",
+                garnishKo: "자몽 트위스트"
+              }
+            }
+          ]
         },
         "Mezcal": {
           nameKo: "메스칼",
@@ -3557,7 +3797,32 @@ const menuData = {
                 garnish: "Orange Twist",
                 garnishKo: "오렌지 트위스트"
               }
-            }]
+            },
+            {
+              name: "Porto Flip",
+              nameKo: "포르토 플립",
+              description: "Cognac, Port Wine, Egg Yolk",
+              descriptionKo: "코냑, 포트 와인, 계란 노른자",
+              flavors: ["rich", "sweet", "creamy"],
+              image: "🥚",
+              history: "A classic flip cocktail from the 1800s. Flips were originally heated drinks made with spirit, sugar, and egg, stirred with a hot poker. The cold version emerged later. A decadent after-dinner drink that's rarely seen today.",
+              historyKo: "1800년대의 클래식 플립 칵테일입니다. 플립은 원래 스피릿, 설탕, 계란으로 만든 뜨거운 음료였으며, 뜨거운 쇠막대로 저었습니다. 차가운 버전은 나중에 등장했습니다. 오늘날 거의 볼 수 없는 퇴폐적인 식후 음료입니다.",
+              recipe: {
+                glass: "Coupe Glass",
+                glassKo: "쿠페 글라스",
+                ingredients: [
+                  { en: "30ml Cognac", ko: "코냑 30ml" },
+                  { en: "45ml Port Wine", ko: "포트 와인 45ml" },
+                  { en: "1 Egg Yolk", ko: "계란 노른자 1개" },
+                  { en: "1 tsp Simple Syrup", ko: "심플 시럽 1 티스푼" }
+                ],
+                method: "Shake all ingredients vigorously with ice. Strain into chilled coupe. Grate nutmeg on top.",
+                methodKo: "모든 재료를 얼음과 세게 흔든다. 차가운 쿠페에 따른다. 위에 육두구를 간다.",
+                garnish: "Freshly Grated Nutmeg",
+                garnishKo: "갓 간 육두구"
+              }
+            }
+          ]
         },
         "Pisco": {
           nameKo: "피스코",
@@ -3692,7 +3957,31 @@ const menuData = {
                 garnish: "Lemon Twist",
                 garnishKo: "레몬 트위스트"
               }
-            }]
+            },
+            {
+              name: "Angel Face",
+              nameKo: "엔젤 페이스",
+              description: "Calvados, Gin, Apricot Brandy",
+              descriptionKo: "칼바도스, 진, 살구 브랜디",
+              flavors: ["fruity", "spirit-forward", "complex"],
+              image: "😇",
+              history: "Created in the 1920s-30s, published in Harry Craddock's 'Savoy Cocktail Book.' An equal-parts cocktail that's deceptively strong. Named after the 1953 film noir 'Angel Face' starring Robert Mitchum. A forgotten pre-Prohibition classic.",
+              historyKo: "1920-30년대에 창안되었으며, 해리 크래독의 '사보이 칵테일 북'에 출판되었습니다. 기만적으로 강한 동량 칵테일입니다. 로버트 미첨 주연의 1953년 필름 누아르 '엔젤 페이스'의 이름을 땄습니다. 잊힌 금주법 이전 클래식입니다.",
+              recipe: {
+                glass: "Coupe Glass",
+                glassKo: "쿠페 글라스",
+                ingredients: [
+                  { en: "30ml Calvados", ko: "칼바도스 30ml" },
+                  { en: "30ml Gin", ko: "진 30ml" },
+                  { en: "30ml Apricot Brandy", ko: "살구 브랜디 30ml" }
+                ],
+                method: "Shake all ingredients with ice. Strain into chilled coupe.",
+                methodKo: "모든 재료를 얼음과 흔든다. 차가운 쿠페에 따른다.",
+                garnish: "Lemon Twist",
+                garnishKo: "레몬 트위스트"
+              }
+            }
+          ]
         }
       }
     },
@@ -5047,6 +5336,17 @@ const menuData = {
             tabsContainer.appendChild(tabs);
             tabsContainer.appendChild(rightArrow);
 
+            // ── 2차 서브카테고리 탭바 ──
+            const subcatTabsWrap = createElement('div', 'subcat-tabs-wrap');
+            const spiritSubcats = menuData[state.selectedSpirit].subcategories;
+            Object.entries(spiritSubcats).forEach(([subcatKey, subcatVal]) => {
+                const t = createElement('button', 'subcat-tab');
+                t.innerHTML = `<span>${subcatVal.icon}</span><span>${subcatKey}</span>`;
+                if (subcatKey === state.selectedSubcategory) t.classList.add('active');
+                t.onclick = () => selectSubcategory(subcatKey);
+                subcatTabsWrap.appendChild(t);
+            });
+
             // 헤더
             const header = createElement('div', 'header');
             const subcatData = menuData[state.selectedSpirit].subcategories[state.selectedSubcategory];
@@ -5099,29 +5399,24 @@ const menuData = {
             }
 
             container.appendChild(tabsContainer);
+            container.appendChild(subcatTabsWrap);
             container.appendChild(header);
             container.appendChild(filterBox);
             container.appendChild(grid);
 
-            // 선택된 탭을 즉시 중앙으로 스크롤 (애니메이션 없음)
+            // 스피릿 탭 즉시 스크롤
             setTimeout(() => {
                 const activeTab = tabs.querySelector('.tab.active');
                 if (activeTab) {
                     const tabsRect = tabs.getBoundingClientRect();
-                    const tabRect = activeTab.getBoundingClientRect();
-                    
-                    // 탭을 중앙으로 이동시키기 위한 스크롤 위치 계산
-                    const scrollLeft = activeTab.offsetLeft - (tabsRect.width / 2) + (tabRect.width / 2);
-                    
-                    // 즉시 이동 (애니메이션 없음)
-                    tabs.scrollLeft = scrollLeft;
+                    tabs.scrollLeft = activeTab.offsetLeft - (tabsRect.width / 2) + (activeTab.offsetWidth / 2);
+                }
+                // 2차 탭 활성탭도 보이게
+                const activeSubTab = subcatTabsWrap.querySelector('.subcat-tab.active');
+                if (activeSubTab) {
+                    activeSubTab.scrollIntoView({ behavior: 'instant', block: 'nearest', inline: 'center' });
                 }
             }, 0);
-
-            // 스크롤 이벤트 리스너 - 스크롤 위치 저장
-            tabs.addEventListener('scroll', () => {
-                state.tabScrollPosition = tabs.scrollLeft;
-            });
 
             return container;
         }
