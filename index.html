@@ -1215,6 +1215,25 @@
             border-bottom: 0.5px solid rgba(201,168,76,0.25);
         }
 
+        .section-price-unit {
+            margin-left: auto;
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.6rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+            text-align: right;
+            line-height: 1.4;
+            flex-shrink: 0;
+        }
+
+        .section-price-unit span {
+            display: block;
+            color: var(--gold);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.72rem;
+        }
+
         .section-icon {
             font-size: 1.2rem;
             flex-shrink: 0;
@@ -1881,13 +1900,13 @@ const menuData = {
                       ,
             {
               name: "Boulevardier",
-              nameKo: "불러바디에",
+              nameKo: "불바디에",
               description: "Rye, Campari, Sweet Vermouth",
               descriptionKo: "라이, 캄파리, 스위트 베르무트",
               flavors: ["bitter", "spirit-forward", "herbal"],
               image: "🔴",
               history: "Created in the 1920s in Paris by Erskine Gwynne, founder of the monthly magazine 'Boulevardier.' A whiskey-based Negroni variation that swaps gin for bourbon or rye. Became popular during Prohibition among American expats in Paris.",
-              historyKo: "1920년대 파리에서 월간지 '불러바디에'의 창립자 어스킨 그윈이 창안했습니다. 진을 버번이나 라이로 바꾼 네그로니 변형입니다. 금주법 기간 동안 파리의 미국 이주자들 사이에서 인기를 얻었습니다.",
+              historyKo: "1920년대 파리에서 월간지 '불바디에'의 창립자 어스킨 그윈이 창안했습니다. 진을 버번이나 라이로 바꾼 네그로니 변형입니다. 금주법 기간 동안 파리의 미국 이주자들 사이에서 인기를 얻었습니다.",
               recipe: {
                 glass: "Rocks Glass",
                 glassKo: "락 글라스",
@@ -2245,7 +2264,7 @@ const menuData = {
               name: "Long Island Iced Tea",
               nameKo: "롱 아일랜드 아이스티",
               description: "Vodka, Rum, Gin, Tequila, Triple Sec, Lemon, Cola",
-              descriptionKo: "보드카, 럼, 진, 데킬라, 트리플 섹, 레몬, 콜라",
+              descriptionKo: "보드카, 럼, 진, 테킬라, 트리플 섹, 레몬, 콜라",
               flavors: ["sweet", "strong", "refreshing"],
               image: "🍹",
               history: "Created in 1972 by Robert 'Rosebud' Butt at the Oak Beach Inn in Long Island, New York. Despite its name, it contains no tea - the cola gives it an iced tea appearance. Infamous for its potency with five different spirits. A party favorite.",
@@ -2257,7 +2276,7 @@ const menuData = {
                   { en: "15ml Vodka", ko: "보드카 15ml" },
                   { en: "15ml White Rum", ko: "화이트 럼 15ml" },
                   { en: "15ml Gin", ko: "진 15ml" },
-                  { en: "15ml Tequila", ko: "데킬라 15ml" },
+                  { en: "15ml Tequila", ko: "테킬라 15ml" },
                   { en: "15ml Triple Sec", ko: "트리플 섹 15ml" },
                   { en: "25ml Fresh Lemon Juice", ko: "신선한 레몬 주스 25ml" },
                   { en: "30ml Simple Syrup", ko: "심플 시럽 30ml" },
@@ -2908,7 +2927,7 @@ const menuData = {
               name: "Mai Tai",
               nameKo: "마이 타이",
               description: "Aged Rum, Lime, Orange Curaçao, Orgeat",
-              descriptionKo: "에이지드 럼, 라임, 오렌지 큐라소, 오르지",
+              descriptionKo: "에이지드 럼, 라임, 오렌지 큐라소, 오르자",
               flavors: ["fruity", "sweet", "refreshing"],
               image: "🏝️",
               history: "Created in 1944 by Victor 'Trader Vic' Bergeron at his Oakland, California tiki bar. Made for Tahitian friends who exclaimed 'Mai Tai-Roa Aé!' meaning 'Out of this world—the best!' Became the quintessential tiki cocktail.",
@@ -2921,7 +2940,7 @@ const menuData = {
                   { en: "20ml Dark Jamaican Rum", ko: "다크 자메이칸 럼 20ml" },
                   { en: "15ml Orange Curaçao", ko: "오렌지 큐라소 15ml" },
                   { en: "15ml Fresh Lime Juice", ko: "신선한 라임 주스 15ml" },
-                  { en: "7.5ml Orgeat", ko: "오르지 7.5ml" }
+                  { en: "7.5ml Orgeat", ko: "오르자 7.5ml" }
                 ],
                 method: "Shake all ingredients with ice. Strain over crushed ice.",
                 methodKo: "모든 재료를 얼음과 흔든다. 크러쉬드 아이스에 따른다.",
@@ -3227,9 +3246,9 @@ const menuData = {
                       ,
             {
               name: "Tequila Sunrise",
-              nameKo: "데킬라 선라이즈",
+              nameKo: "테킬라 선라이즈",
               description: "Tequila, Orange Juice, Grenadine",
-              descriptionKo: "데킬라, 오렌지 주스, 그레나딘",
+              descriptionKo: "테킬라, 오렌지 주스, 그레나딘",
               flavors: ["sweet", "fruity", "refreshing"],
               image: "🌅",
               history: "The original version was created in the 1930s in Arizona, but the modern version was popularized in the 1970s in Sausalito, California. Named for its sunrise-like appearance with grenadine settling at the bottom. Made famous by the Rolling Stones and Eagles.",
@@ -3238,12 +3257,12 @@ const menuData = {
                 glass: "Highball Glass",
                 glassKo: "하이볼 글라스",
                 ingredients: [
-                  { en: "50ml Tequila Blanco", ko: "데킬라 블랑코 50ml" },
+                  { en: "50ml Tequila Blanco", ko: "테킬라 블랑코 50ml" },
                   { en: "120ml Fresh Orange Juice", ko: "신선한 오렌지 주스 120ml" },
                   { en: "15ml Grenadine", ko: "그레나딘 15ml" }
                 ],
                 method: "Build tequila and orange juice over ice. Slowly pour grenadine to sink.",
-                methodKo: "얼음 위에 데킬라와 오렌지 주스를 만든다. 그레나딘을 천천히 넣어 가라앉힌다.",
+                methodKo: "얼음 위에 테킬라와 오렌지 주스를 만든다. 그레나딘을 천천히 넣어 가라앉힌다.",
                 garnish: "Orange Slice, Cherry",
                 garnishKo: "오렌지 슬라이스, 체리"
               }
@@ -3283,22 +3302,22 @@ const menuData = {
               name: "El Diablo",
               nameKo: "엘 디아블로",
               description: "Tequila, Crème de Cassis, Lime, Ginger Beer",
-              descriptionKo: "데킬라, 크렘 드 카시스, 라임, 진저 비어",
+              descriptionKo: "테킬라, 크렘 드 카시스, 라임, 진저 비어",
               flavors: ["spicy", "fruity", "refreshing"],
               image: "😈",
               history: "Created in the 1940s by Trader Vic (Victor Bergeron), the legendary tiki bar pioneer. Originally called 'Mexican El Diablo.' Combines tequila with the spice of ginger beer and the fruitiness of cassis. A tiki-Mexican fusion classic.",
-              historyKo: "1940년대 전설적인 티키 바 선구자 트레이더 빅(빅터 버게론)이 창안했습니다. 원래 '멕시칸 엘 디아블로'라고 불렸습니다. 데킬라와 진저 비어의 스파이시함, 카시스의 과일향을 결합합니다. 티키-멕시칸 융합 클래식입니다.",
+              historyKo: "1940년대 전설적인 티키 바 선구자 트레이더 빅(빅터 버게론)이 창안했습니다. 원래 '멕시칸 엘 디아블로'라고 불렸습니다. 테킬라와 진저 비어의 스파이시함, 카시스의 과일향을 결합합니다. 티키-멕시칸 융합 클래식입니다.",
               recipe: {
                 glass: "Highball Glass",
                 glassKo: "하이볼 글라스",
                 ingredients: [
-                  { en: "45ml Tequila Reposado", ko: "데킬라 레포사도 45ml" },
+                  { en: "45ml Tequila Reposado", ko: "테킬라 레포사도 45ml" },
                   { en: "15ml Crème de Cassis", ko: "크렘 드 카시스 15ml" },
                   { en: "15ml Fresh Lime Juice", ko: "신선한 라임 주스 15ml" },
                   { en: "90ml Ginger Beer", ko: "진저 비어 90ml" }
                 ],
                 method: "Build tequila, cassis, and lime over ice. Top with ginger beer. Stir gently.",
-                methodKo: "얼음 위에 데킬라, 카시스, 라임을 만든다. 진저 비어로 채운다. 부드럽게 저어준다.",
+                methodKo: "얼음 위에 테킬라, 카시스, 라임을 만든다. 진저 비어로 채운다. 부드럽게 저어준다.",
                 garnish: "Lime Wedge",
                 garnishKo: "라임 웨지"
               }
@@ -3307,16 +3326,16 @@ const menuData = {
               name: "Rosita",
               nameKo: "로지타",
               description: "Tequila, Campari, Sweet & Dry Vermouth",
-              descriptionKo: "데킬라, 캄파리, 스위트 & 드라이 베르무트",
+              descriptionKo: "테킬라, 캄파리, 스위트 & 드라이 베르무트",
               flavors: ["bitter", "herbal", "spirit-forward"],
               image: "🌹",
               history: "Created by Gary 'Gaz' Regan, published in his 1991 book 'The Bartender's Bible.' A tequila-based Negroni variation that uses both sweet and dry vermouth. Named after the Spanish word for 'little rose.' A sophisticated bitter cocktail.",
-              historyKo: "게리 '개즈' 리건이 창안하여 1991년 그의 책 '바텐더의 성경'에 출판했습니다. 스위트와 드라이 베르무트를 모두 사용하는 데킬라 베이스 네그로니 변형입니다. 스페인어로 '작은 장미'를 의미하는 이름입니다. 세련된 비터 칵테일입니다.",
+              historyKo: "게리 '개즈' 리건이 창안하여 1991년 그의 책 '바텐더의 성경'에 출판했습니다. 스위트와 드라이 베르무트를 모두 사용하는 테킬라 베이스 네그로니 변형입니다. 스페인어로 '작은 장미'를 의미하는 이름입니다. 세련된 비터 칵테일입니다.",
               recipe: {
                 glass: "Rocks Glass",
                 glassKo: "락 글라스",
                 ingredients: [
-                  { en: "45ml Tequila Reposado", ko: "데킬라 레포사도 45ml" },
+                  { en: "45ml Tequila Reposado", ko: "테킬라 레포사도 45ml" },
                   { en: "15ml Campari", ko: "캄파리 15ml" },
                   { en: "15ml Sweet Vermouth", ko: "스위트 베르무트 15ml" },
                   { en: "15ml Dry Vermouth", ko: "드라이 베르무트 15ml" },
@@ -3361,7 +3380,7 @@ const menuData = {
             },
             {
               name: "Naked and Famous",
-              nameKo: "네이키드 앤 페이머스",
+              nameKo: "네이크드 앤 페이머스",
               description: "Mezcal, Aperol, Yellow Chartreuse, Lime",
               descriptionKo: "메스칼, 아페롤, 옐로우 샤르트뢰즈, 라임",
               flavors: ["smoky", "herbal", "sour"],
@@ -4660,14 +4679,14 @@ const menuData = {
             if (!el) return;
             const offset = 92; // breadcrumb 40 + tabs 44 + 8
             const top = el.getBoundingClientRect().top + window.scrollY - offset;
-            window.scrollTo({ top, behavior: 'smooth' });
+            window.scrollTo({ top, behavior: 'instant' });
             // Update active tab immediately
             document.querySelectorAll('.home-tab').forEach(t =>
                 t.classList.toggle('active', t.dataset.section === id)
             );
             // Scroll active tab into view
             const activeTab = document.querySelector(`.home-tab[data-section="${id}"]`);
-            if (activeTab) activeTab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            if (activeTab) activeTab.scrollIntoView({ behavior: 'instant', block: 'nearest', inline: 'center' });
         }
 
         function renderItemRow(item) {
@@ -4713,6 +4732,7 @@ const menuData = {
                         <span class="section-name">${key}</span>
                         <span class="section-name-ko">${cat.nameKo}</span>
                     </div>
+                    <div class="section-price-unit">단위: ,000원<span>Price in ,000 KRW</span></div>
                 `;
                 section.appendChild(header);
 
@@ -4747,7 +4767,7 @@ const menuData = {
                                 t.classList.toggle('active', t.dataset.section === id)
                             );
                             const activeTab = document.querySelector(`.home-tab[data-section="${id}"]`);
-                            if (activeTab) activeTab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                            if (activeTab) activeTab.scrollIntoView({ behavior: 'instant', block: 'nearest', inline: 'center' });
                         }
                     });
                 }, { rootMargin: `-92px 0px -55% 0px`, threshold: 0 });
@@ -4779,12 +4799,12 @@ const menuData = {
             if (!el) return;
             const offset = 92;
             const top = el.getBoundingClientRect().top + window.scrollY - offset;
-            window.scrollTo({ top, behavior: 'smooth' });
+            window.scrollTo({ top, behavior: 'instant' });
             document.querySelectorAll('.home-tab').forEach(t =>
                 t.classList.toggle('active', t.dataset.section === id)
             );
             const activeTab = document.querySelector(`.home-tab[data-section="${id}"]`);
-            if (activeTab) activeTab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            if (activeTab) activeTab.scrollIntoView({ behavior: 'instant', block: 'nearest', inline: 'center' });
         }
 
         function renderWhisky() {
@@ -4817,6 +4837,7 @@ const menuData = {
                         <span class="section-name">${key}</span>
                         <span class="section-name-ko">${cat.nameKo}</span>
                     </div>
+                    <div class="section-price-unit">단위: ,000원<span>Price in ,000 KRW</span></div>
                 `;
                 section.appendChild(header);
 
@@ -4838,7 +4859,7 @@ const menuData = {
                                 t.classList.toggle('active', t.dataset.section === id)
                             );
                             const activeTab = document.querySelector(`.home-tab[data-section="${id}"]`);
-                            if (activeTab) activeTab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                            if (activeTab) activeTab.scrollIntoView({ behavior: 'instant', block: 'nearest', inline: 'center' });
                         }
                     });
                 }, { rootMargin: `-92px 0px -55% 0px`, threshold: 0 });
